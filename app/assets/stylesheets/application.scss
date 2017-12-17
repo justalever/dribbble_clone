@@ -1,0 +1,77 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+$pink: #ea4c89;
+$pink-invert: #fff;
+
+$primary: $pink;
+$primary-invert: $pink-invert;
+$link: $primary;
+$link-hover: darken($primary, 20%);
+
+
+@import "bulma";
+
+html, body {
+	min-height: 100vh;
+	background-color: #f4f4f4;
+}
+
+#drop_zone {
+	position: relative;
+	padding: 3rem 0;
+	border: 2px dashed #ccc;
+	text-align: center;
+	border-radius: 6px;
+	background-color: #f8f8f8;
+	&.dragging::before {
+		content: "";
+	  position: absolute;
+	  left: 0; width: 100%;
+	  top: 0; height: 100%;
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  font-size: 1.5em;
+	  background-color: rgba($primary, .3);
+	  pointer-events: none;
+	  z-index: 99;
+	}
+	&.fire::before {
+		content: "";
+	  position: absolute;
+	  left: 0; width: 100%;
+	  top: 0; height: 100%;
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  font-size: 1.5em;
+	  background-color: rgba($green, .3);
+	  pointer-events: none;
+	  z-index: 99;
+	}
+}
+
+.notification {
+	border-radius: none;
+}
+.notification:not(:last-child) {
+	margin-bottom: 0;
+}
+
+.visible {
+	display: block !important;
+}

@@ -1,0 +1,21 @@
+<div class="box">
+  <article class="media">
+    <figure class="media-left">
+      <p class="image is-48x48 user-thumb">
+        <%= gravatar_image_tag(comment.user.email.gsub('spam', 'mdeering'), alt: comment.user.name, gravatar: { size: 48 }) %>
+      </p>
+    </figure>
+    <div class="media-content">
+      <div class="content">
+        <p>
+          <strong><%= comment.user.name %></strong>
+          <div><%= comment.response %></div>
+        </p>
+      </div>
+    </div>
+    <% if (user_signed_in? && (current_user.id == comment.user_id)) %>
+       <%= link_to 'Delete', [comment.shot, comment],
+                  method: :delete, class: "button is-danger", data: { confirm: 'Are you sure?' } %>
+    <% end %>
+  </article>
+</div>

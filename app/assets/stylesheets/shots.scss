@@ -1,0 +1,150 @@
+// Place all the styles related to the Shots controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.hero.is-dark {
+	background-color: #282828 !important;
+}
+
+.shot-wrapper {
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);
+	border-radius: 2px;
+	padding: 10px;
+	background: white;
+}
+.shots {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	grid-gap: 1rem;
+	@media only screen and (min-width: 1600px) {
+		grid-template-columns: repeat(6, 1fr);
+	}
+	@media only screen and (max-width: 1300px) {
+		grid-template-columns: repeat(4, 1fr);
+	}
+	@media only screen and (max-width: 1100px) { 
+		grid-template-columns: repeat(3, 1fr);
+	}
+	@media only screen and (max-width: 800px) {
+		grid-template-columns: 1fr 1fr;
+	}
+	@media only screen and (max-width: 400px) {
+		grid-template-columns: 1fr;
+	}
+
+}
+.shot {
+	position: relative;
+	display: block;
+	color: #333 !important;
+
+	.shot-data {
+		display: none;
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		padding: 10px;
+		background: rgba(white, .9);
+		cursor: pointer;
+		.shot-title {
+			font-weight: bold;
+		}
+		.shot-description {
+			font-size: .9rem;
+		}
+		.shot-time {
+			font-size: .8rem;
+			padding-top: .5rem;
+		}
+	}
+}
+
+.user-data {
+	padding: 1rem 0 0 0;
+}
+
+.user-name {
+	display: inline-block;
+	position: relative;
+	top: -4px;
+	padding-left: 5px;
+}
+
+.user-thumb {
+	display: inline-block;
+	img {
+		border-radius: 50%;
+	}
+}
+
+.by,
+.shot-time {
+	display: inline-block;
+	position: relative;
+	top: -4px;
+}
+
+.shot-analytics {
+	text-align: right;
+	@media only screen and (max-width: 800px) {
+		text-align: right;
+		.level-item {
+			display: inline-block;
+			padding: 0 4px;
+		}
+		.level-left+.level-right {
+			margin: 0;
+			padding: 0;
+		}
+		.level-item:not(:last-child) {
+			margin: 0;
+		}
+	}
+}
+
+.shot-analytics,
+.panel.show-shot-analytics {
+	font-size: .9rem;
+	a,
+	.icon {
+		color: #aaa;
+	}
+	.icon:hover,
+	a:hover {
+		color: darken(#aaa, 25%);
+	}
+}
+
+.panel.show-shot-analytics {
+	a { color: #333; }
+	.icon {
+		padding-right: .5rem;
+	}
+	.likes .vote_count {
+		margin-left: -4px;
+	}
+}
+
+
+.shot-container {
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);
+	border-radius: 2px;
+	padding: 40px;
+	background: white;
+	@media only screen and (max-width: 800px) {
+		padding: 10px;
+	}
+	.content,
+	.comments {
+		margin-top: 1rem;
+		padding: 20px;
+		@media only screen and (max-width: 800px) {
+			padding: 0;
+		}
+	}
+}
+
+.shot-full {
+	text-align: center;
+}

@@ -1,0 +1,37 @@
+<%= simple_form_for @shot, html: { multipart: true }  do |f| %>
+  <%= f.error_notification %>
+  <div class="columns is-centered">
+    <div class="column is-half">
+    
+    <% unless @shot.user_shot.blank? %>
+    <%= image_tag (@shot.user_shot_url), id: "previewImage" %>
+    <% end %>
+
+    <output id="list"></output>
+    <div id="drop_zone">Drag your shot here</div>
+    <br />
+
+    <%= f.input :user_shot, label: false, input_html: { class: "file-input", type: "file" }, wrapper: false, label_html: { class: "file-label" } %>
+
+    <div class="field">
+      <div class="control">
+      	<%= f.input :title, label: "Title", input_html: { class: "input"}, wrapper: false, label_html: { class: "label" } %>
+      </div>
+    </div>
+
+    <div class="field">
+    	<div class="control">
+      	<%= f.input :description, input_html: { class: "textarea"}, wrapper: false, label_html: { class: "label" } %>
+      </div>
+    </div>
+
+    <div class="field">
+    	<div class="control">
+      	<%= f.button :submit, class:"button is-primary" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+ 
+<% end %>
